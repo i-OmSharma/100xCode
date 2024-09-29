@@ -10,7 +10,8 @@ function userMiddleware(req, res, next) {
     const jwtToken = words[1]
     const decodedValue = jwt.verify(jwtToken, process.env.JWT_SECRET);
     if (decodedValue.username) { // jwt constains hashed version of username in it that username is being used by the middlweware. 
-        next();                  // which is being used here for extracting the username from decoded jwt.
+        req.username = decodedValue.username // which is being used here for extracting the username from decoded jwt.
+        next();
     } else {
         res.status(300).json({
             msg: "You are not Authenticated"

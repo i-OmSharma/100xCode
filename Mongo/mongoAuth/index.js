@@ -4,6 +4,7 @@ const app = express();
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/user");
 const router = require("./routes/admin");
+const router = require("./routes/user")
 
 
 // Middleware parsing body
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 
 // Use routes
 app.use("/admin", router);
+app.use("/user", router)
 // app.use("/user", userRoutes);
 
 const PORT = 3000;
