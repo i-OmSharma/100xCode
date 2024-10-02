@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function populateDiv() {
+        const a = document.getElementById("firstNum").value;
+        const b = document.getElementById("secondNum").value;
+        const element = document.getElementById("finalSum")
+        console.log(element);
+        // element.innerHTML = "hello world"
+        element.innerHTML = parseInt(a) + parseInt(b); 
+    }
+</script>
+<body>
+    <input oninput="populateDiv()" id="firstNum" type="text" placeholder="First Number"><br><br>
+    <input oninput="populateDiv()" id="secondNum" type="text" placeholder="Second Number"><br><br>
+    <button onclick="populateDiv()">Calculate</button><br><br> 
+    <div id="finalSum"></div>
+</body> 
+
+<style>
+    /* .container {
+        background-color: red;
+        font-size: 100;
+        padding: 20px;
+        margin: 100px;
+        color: green;
+    } */
+
+    /* use seperarte id for seperate elements */
+
+    #container1 {  
+        background-color: red;
+        font-size: 100;
+        padding: 20px;
+        margin: 100px;
+        color: green;
+    }
+</style>
+<body>
+    <div id="container1">
+        hi there
+    </div>
+
+    <div class="container">
+        hi there 2
+    </div> 
+</body> 
+</html>
