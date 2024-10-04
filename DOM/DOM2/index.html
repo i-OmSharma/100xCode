@@ -21,8 +21,12 @@
         async function populateDiv2() {
             const a = document.getElementById("firstNum").value;
             const b = document.getElementById("secondNum").value;
+            
+                //axios
+                // const response1 = await axios.get("http://localhost:3000/sum?a=" + a + "&b=" + b)
+                // response1.data
 
-            const response = await fetch("http://localhost:3000/sum?a=" + a + "&b=" + b)
+            const response2 = await fetch("http://localhost:3000/sum?a=" + a + "&b=" + b)
             const ans = await response.text()
             document.getElementById("finalSum").innerHTML = ans;
         }
