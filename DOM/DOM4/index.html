@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script>
+
+            let globalId = 1;
+            
+            // function createChild() {
+            //         // const title = document.getElementById("title").value;
+            //         // const description = document.getElementById("description").value;
+                    
+            //         // document.createElement
+            //         // const childDiv = document.createElement("div") //<div></div>
+            //         // outerDiv.innerHTML = title;
+            //         // document.getElementById("container").appendChild(childDiv);
+            //         // const originalHtml = document.getElementById("container").innerHTML;
+            //         // document.getElementById("container").innerHTML = originalHtml + `<div>
+            //         //                 <div>${title}</div><br>
+            //         //                 <div>${description}</div><br>
+            //         //                 <button>Mark as Done!</button>
+            //         //             </div>`
+            // }
+            function markAsDone(todoId) {
+                const parent = document.getElementById(todoId);
+                parent.children[2].innerHTML = "Done";
+            }
+
+            function createChild(title, description, id) {
+                const child = document.createElement("div");
+                const firstChild = document.createElement("div");
+                firstChild.innerHTML = title;
+                const secondChild = document.createElement("div");
+                secondChild.innerHTML = description;
+                const thirdChild = document.createElement("button");
+                thirdChild.innerHTML = "Mark As Done";
+                thirdChild.setAttribute("onclick",`markAsDone(${id})`);
+                child.appendChild(firstChild);
+                child.appendChild(secondChild);
+                child.appendChild(thirdChild);
+                child.setAttribute("id", id);
+                return child;
+            }
+    
+            function addToDo() {
+                const title = document.getElementById("title").value;
+                const description = document.getElementById("description").value;
+                const parent = document.getElementById("container");
+
+                parent.appendChild(createChild(title, description, globalId++)); 
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="title" placeholder="Todo Title"><br><br>
+        <input type="text" id="description" placeholder="Todo description"><br><br>
+        <button onclick="addToDo()">Add Todo</button>
+
+        <div id="container"></div>
+    </body>
+</html>
