@@ -1,7 +1,6 @@
 <html>
     <head>
         <script>
-
             let globalId = 1;
             
             // function createChild() {
@@ -23,7 +22,6 @@
                 const parent = document.getElementById(todoId);
                 parent.children[2].innerHTML = "Done";
             }
-
             function createChild(title, description, id) {
                 const child = document.createElement("div");
                 const firstChild = document.createElement("div");
@@ -44,17 +42,14 @@
                 const title = document.getElementById("title").value;
                 const description = document.getElementById("description").value;
                 const parent = document.getElementById("container");
-
                 parent.appendChild(createChild(title, description, globalId++)); 
             }
         </script>
     </head>
-
     <body>
         <input type="text" id="title" placeholder="Todo Title"><br><br>
         <input type="text" id="description" placeholder="Todo description"><br><br>
         <button onclick="addToDo()">Add Todo</button>
-
         <div id="container"></div>
     </body>
 </html>

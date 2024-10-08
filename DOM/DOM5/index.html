@@ -1,0 +1,58 @@
+<html>
+    <body>
+        <input type="text" id="title" placeholder="Todo Title"><br><br>
+        <input type="text" id="description" placeholder="Todo description"><br><br>
+
+        <div id="container"></div>
+
+        <script>
+
+            let globalId = 1;
+            
+            function createChild(title, description, id) {
+                const child = document.createElement("div");
+                const firstChild = document.createElement("div");
+                firstChild.innerHTML = title;
+                const secondChild = document.createElement("div");
+                secondChild.innerHTML = description;
+                const thirdChild = document.createElement("button");
+                thirdChild.innerHTML = "Mark As Done";
+                thirdChild.setAttribute("onclick",`markAsDone(${id})`);
+                child.appendChild(firstChild);
+                child.appendChild(secondChild);
+                child.appendChild(thirdChild);
+                child.setAttribute("id", id);
+                return child;
+            }
+            // State will always be an array
+            // every element of state would have a title, description, and id 
+            //
+            //
+            //
+           function updateDomState(state) {
+            const parent = document.getElementById("container")
+            parent.innerHTML = "";
+            for(let i = 0; i < state.length; i++) {
+                const child = createChild(state[i].title,  state[i].description, state[i].id);
+                parent.appendChild(child);
+            }
+           }
+        //    updateDomState([])
+        window.setInterval(async function () {
+            const res = await fetch("https://sum-server.100xdevs.com/todos")
+            const json = await res.json();
+            updateDomState(json.todos)
+        }, 5000 )
+
+        //State + logic -> react 
+        //Dont clear the DOM upfront, update it based on what has changed
+        //first we are clearing the DOM,then we are adding into the DOM .
+        //this is not optimum what if backend returns u the same state again, and adding them back thats bad! 
+        //better way is "By remembering the old todos in a variable(Virtual DOM)"
+        //anytime u get something from the server u calaulate the diff, just update specific element in the DOM 
+        //Anytime the state changes, calaulate the diff based on the diff update the DOM.
+        //Dont clear the DOM and readd things
+        </script>
+    </body>
+</html> 
+
