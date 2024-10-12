@@ -11,6 +11,7 @@ eg- the value of the counter
 Component:-
 How a DOM element should render, given a state
 It is a re-useable, dynamic, HTML snippet that changes given the state
+A function that takes props or state as an input and returns u back the actual html of something on your website 
 
 Give me a state of your application, a very big object that represents the dynamic part of ur application
 Give me all ur individual Component and how they are structured together,
