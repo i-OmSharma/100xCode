@@ -1,0 +1,17 @@
+A Component can only return a single top level xml because
+1. Make it easy to do reconciliation
+
+-------------------------------------------------------------------------------------------------
+
+A re-render means that
+1.React did some work to calaulate what all should update in this component.
+2.The component actually got called, function got called by React
+3.The inspector shows you a bounding box around the component.
+
+It happens when
+1. A state variable that is being used inside a component changes.
+2. A parent component re-render triggers all childern re-rendering.
+
+You want to minimize the number of re-renders to make a highly optimal react app 
+--> push the state down make the static one aside and dynamic one other side
+The more the component that are getting re-renderd, the worse  
