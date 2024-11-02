@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { boolean } from 'zod';
+import 'dotenv/config';
 /* 
 Todo {
     title:string,
@@ -8,7 +9,7 @@ Todo {
 }
 */
 
-mongoose.connect("mongodb+srv://admin:admin999@cluster0.cs07b.mongodb.net/toDo");
+mongoose.connect(process.env.MONGO_URL);
 
 const TodoSchema = new mongoose.Schema({
     title: String,
