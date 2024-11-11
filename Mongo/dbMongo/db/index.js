@@ -1,8 +1,7 @@
+require ('dotenv').config();
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://admin:admin999@cluster0.cs07b.mongodb.net/CourseSellingApp"
-);
+mongoose.connect(process.env.MONGO_URL);
 
 //AdminSchema
 const AdminSchema = new mongoose.Schema({
