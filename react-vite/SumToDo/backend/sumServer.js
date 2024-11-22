@@ -39,6 +39,8 @@ app.get("/todo", (req, res) => {
   })
 })
 
+//Random Todo
+
 app.get("/todos", (req, res) => {
   const randomTodos = [];
   for (let i = 0; i < 5; i++) {
@@ -51,12 +53,16 @@ app.get("/todos", (req, res) => {
   })
 });
 
+//Sum
+
 app.get("/sum", (req, res) => {
   const a = parseInt(req.query.a);
   const b = parseInt(req.query.b);
   const sum = a + b;
   res.send(sum.toString());
 });
+
+//Calculate Intrest
 
 app.get("/interest", (req, res) => {
   const principal = parseInt(req.query.principal);
@@ -70,6 +76,8 @@ app.get("/interest", (req, res) => {
   })
 
 });
+
+//Notification
 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
