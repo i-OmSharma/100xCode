@@ -24,5 +24,5 @@ You  usually have to define all your Component once,
 and then all you have to do is update the state of your app, React takes care of re-rendering your app. 
 
 Virtual DOM:-
-Virtual DOM is sort of representation of current DOM that keeps in memory, uses uit to calaulate the difference 
-the current state and the old state, what updated it needs to make  
+Virtual DOM is sort of representation of current DOM that keeps in memory, uses it to calaulate the difference 
+the current state and the old state, what updated it needs to make.
