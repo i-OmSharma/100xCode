@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div>
-      <CustomButton count={count} setCount={setCount}></CustomButton>
+      <CustomButton om={count} sharma={setCount}></CustomButton>
     </div>
   )
 
@@ -32,10 +32,10 @@ function App() {
 function CustomButton(props) {
  
   function onClickHandler () {
-    props.setCount(props.count + 1);
+    props.sharma(props.om + 1);
   }
 
-  return <button onClick={onClickHandler}> Counter {props.count} </button>
+  return <button onClick={onClickHandler}> Counter {props.om} </button>
   
 }
 export default App
