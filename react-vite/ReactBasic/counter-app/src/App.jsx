@@ -21,6 +21,17 @@ function App() {
   //   </div>
   // )
 
+
+  //Actual Convention
+  
+//   return (
+//     <div>
+//       <CustomButton count={count} setCount={setCount}></CustomButton>
+//     </div>
+//   )
+
+// }
+
   return (
     <div>
       <CustomButton om={count} sharma={setCount}></CustomButton>
