@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 
 function App() {
-  const [count, setCount] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     axios.get("localhost:3000/sumserver")
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      {todos.map(todo=> <Todo title={todo.title} description={todo.description}/>)} 
+      {todos.map(todo => <Todo title={todo.title} description={todo.description}/>)} 
     </>
   )
 }
