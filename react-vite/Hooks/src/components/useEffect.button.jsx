@@ -17,6 +17,15 @@ function App() {
 function Todo({id}) {
     const [todo, setTodos] = useState({})
 
+    // useEffect(() => {
+    //         setTimeout(() => {
+    //             axios.get("https://sum-server.100xdevs.com/todo?id=" + id) // here if u want to use some fn then like setTimeout or any functional thing then 
+    //         .then(response => {                                            //put that axios full data fetching get() inside that fn , not in the dependency array.
+    //             setTodos(response.data.todo)
+    //         })
+    //     }, 5000)
+    // }, [id])
+
     useEffect(() => {
         axios.get("https://sum-server.100xdevs.com/todo?id=" + id)
         .then(response => {
