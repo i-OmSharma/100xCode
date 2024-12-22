@@ -9,7 +9,7 @@ const  value = {
 }
 
 //jwt
-//sign not generate
+//function is sign not generate
 const token = jwt.sign(value, "secPass");
 console.log(token);
 // this token has been generated using this secPass, and hence this token can only be verified using this secPass
