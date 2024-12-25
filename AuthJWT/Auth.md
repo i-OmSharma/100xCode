@@ -26,9 +26,9 @@
 # local storage 
 - place in browser where we can store some data  
 - usually things that are stored include :
-1. Authentication tokens
-2. User language preference
-3. User theme preference
+1. Authentication tokens.
+2. User language preference.
+3. User theme preference.
 
 
 
