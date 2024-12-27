@@ -8,3 +8,6 @@
 React lets u create single page appication --> u justchage the view here somehow
 
 - Bundle - js
+
+# react-router-dom
+client side routing.
