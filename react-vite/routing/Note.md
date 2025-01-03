@@ -11,5 +11,10 @@ React lets u create single page appication(SPA) --> u justchage the view here so
 
 # react-router-dom
 client side routing.
+We will not recive a fresh bundel eveytime.
 
 
+when doing client side rotinng everything is done at client side, no server is required.
+Because we bundel is not loaded everytime, everything is done at the client side. 
+
+useNavigate - always use inside BrouserRouter
