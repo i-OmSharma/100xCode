@@ -18,4 +18,4 @@ when doing client side rotinng everything is done at client side, no server is r
 Because we bundel is not loaded everytime, everything is done at the client side. 
 
 useNavigate - always use inside BrouserRouter, everything everything 
-whatever naviages needs to be inside the BrowserRouter 
+whatever navigates needs to be inside the BrowserRouter 
