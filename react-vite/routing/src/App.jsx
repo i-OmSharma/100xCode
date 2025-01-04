@@ -1,8 +1,9 @@
-import { useState } from "react"
+import React, { useState } from "react"
+
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
-import { Dashboard } from "./components/Dashboard"
-import { Landing } from "./components/Landing"
-import { Appbar } from "./components/Appbar"
+const Dashboard = React.lazy(() => import("./components/Dashboard"))
+const  Landing = React.lazy(()=> import("./components/Landing"))
+const  Appbar  = React.lazy(() => import("./components/Appbar"))
 
 function App() {
   // const navigate = useNavigate() used inside the BrowserRouter
