@@ -1,11 +1,13 @@
-import React, { Suspense } from "react"
+import React, { Suspense, useState } from "react"
 
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+import Count from "./components/Count"
+import Buttons from "./components/Buttons"
 const Dashboard = React.lazy(() => import("./components/Dashboard"))
 const  Landing = React.lazy(()=> import("./components/Landing"))
 const  Appbar  = React.lazy(() => import("./components/Appbar"))
 
-function App() {
+// function App() {
   // const navigate = useNavigate() used inside the BrowserRouter
 
   // return (
@@ -54,18 +56,20 @@ function App() {
   // )
   // everything will be inside the BrowserRouter
 
-  return (
-    <div>
-      <BrowserRouter>
-        <Appbar/>
-        <Routes>
-          <Route path="/dashboard" element={<Suspense fallback={"Loading..."}><Dashboard /></Suspense>} />
-          <Route path="/landing" element={<Suspense fallback={"Loading..."}><Landing /></Suspense>} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  )
-}
+  // Code to look-for
+
+//   return (
+//     <div>
+//       <BrowserRouter>
+//         <Appbar/>
+//         <Routes>
+//           <Route path="/dashboard" element={<Suspense fallback={"Loading..."}><Dashboard /></Suspense>} />
+//           <Route path="/landing" element={<Suspense fallback={"Loading..."}><Landing /></Suspense>} />
+//         </Routes>
+//       </BrowserRouter>
+//     </div>
+//   )
+// }
 
 // function Appbar() {
 //   const navigate = useNavigate();
@@ -84,5 +88,18 @@ function App() {
 //     </div>
 //   )
 // }
+
+/*----------------------------------------------------------------------------------*/
+
+function App() {
+  const [count,setCount] = useState(0)
+
+  return (
+    <div>
+      <Count count={count} />
+      <Buttons count={count} setCount={setCount} />
+    </div>
+  )
+}
 
 export default App

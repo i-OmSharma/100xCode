@@ -34,3 +34,19 @@ when he goes 2 page 2 will get the code for page 2
 and so on and so forth
 
 * Suspense : asynchronousy data fetching
+
+# Prop Drilling
+* Least comon ansistor
+
+push it down as much as, but keep common 
+
+* u have a state vari at parent or position 1 nd u want it on the 4-5 child then u have to pass the vari in all rest of 3, which is child 1, 2, 3 or 4.
+* everyone will have it and pass it to the lower or other child
+* No Rerender
+* But code uggly
+* prop drilling doesn't means that  parent re-render child. It just means the syntactic unasiness when writting code. 
+
+- Passing props is a great way to explicitly  pipe data through ur UI tree to the components that use it.
+- But passing props can become verbose and inconvenient when u need some prop deeply through the tree, or if may components needs the same prop.The nearest ancestor could be far removed from the components that need data, and lifting state up that high can lead to a situation called "Prop Drilling". 
+
+
