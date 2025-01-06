@@ -32,3 +32,5 @@ as the user goes to page 1 load page1 bundel and he visits page 2 load bundel pa
 so its like the user is in page 1 then he will get the react bundel and the code for page 1,
 when he goes 2 page 2 will get the code for page 2
 and so on and so forth
+
+* Suspense : asynchronousy data fetching
