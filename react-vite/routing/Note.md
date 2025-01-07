@@ -50,3 +50,7 @@ push it down as much as, but keep common
 - But passing props can become verbose and inconvenient when u need some prop deeply through the tree, or if may components needs the same prop.The nearest ancestor could be far removed from the components that need data, and lifting state up that high can lead to a situation called "Prop Drilling". 
 
 
+# Contest API
+
+- Wouldn't be great if there were a way to "teleport" data to the component in the tree that needs it without passing Props 
+- If u use the context api, ur pushing ur state management outside the core react components.
