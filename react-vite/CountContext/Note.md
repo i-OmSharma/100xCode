@@ -1,0 +1,5 @@
+- whoever is using <useContext()> will be only re-rendered not the whole will. 
+- Wh do use the ContextAPI ??
+- To make rendering more performant - No
+- To make syntax cleaner get rid of prop drilling -yess
+- 
