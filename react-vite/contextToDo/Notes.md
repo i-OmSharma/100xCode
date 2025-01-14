@@ -17,7 +17,7 @@
 - Its good to have State and Components in seperate Folder.
 
 # Recoil
-- is the state management 
+- is the state management.
 - Has a concept of an atom to store the state.
 - An atom can be defined outside the component.
 - can be teleported to any component.
