@@ -10,7 +10,7 @@
 - Doesn't fix re-render, only fixes prop drilling
 
 # Whats is State management 
-- It is a cleaner way to store the state of ur app
+- It is a cleaner way to store the state of ur app.
 - Until now, the cleanest thing you can do is use Context API.It lets you teleport state.
 
 - But there are better solutions that get rid of the problem that context API has - Unnencssary re-renders.
