@@ -22,9 +22,9 @@
 - An atom can be defined outside the component.
 - can be teleported to any component.
 
-- RecoilRoot
+- RecoilRoot -> wrap via this the component renders
 - atom
-- useRecoilState
-- useRecoilValue
-- useSetRecoilState
+- useRecoilState -> useState(currentValue, howToUpdateTheCurrentValue)
+- useRecoilValue ->  Just want the value
+- useSetRecoilState -> Only want to update variable, and not actually get the value 
 - Selector
