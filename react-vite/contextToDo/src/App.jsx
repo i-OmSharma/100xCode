@@ -1,6 +1,4 @@
-import { useContext } from 'react'
-import { CountContext } from './context'
-import { RecoilRoot  ,useRecoilState, useRecoilValue } from 'recoil'
+import { RecoilRoot  ,useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { countAtom } from './store/atoms/count'
 
 
@@ -12,7 +10,7 @@ function App() {
         <Count /> 
       </RecoilRoot >
     </div>
-  )
+  )  
 }
 
 function Count() {
@@ -33,15 +31,22 @@ function CountRenderer() {
 }
 
 function Button() {
-  const [count, setCount] = useRecoilState(countAtom)
+  // const [count, setCount] = useRecoilState(countAtom) //here the button re renders everytime we click the button so we are replacing it with const setCount = useStateRecoilState(countAtom)
 
+  //setCount(Count+1)
+  //setCount(c => c + 1)
+  //setCount(function(c) {
+    //retur c + 1
+  //})
+
+  const setCount = useSetRecoilState(countAtom)
   return <div>
     <button onClick={() => {
-      setCount(count + 1)
+      setCount(count => count + 1)
     }}>Increase</button>
 
     <button onClick={() => {
-      setCount(count - 1)
+      setCount(count => count - 1)
     }}>Decrease</button>
   </div>
 }
