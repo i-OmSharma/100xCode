@@ -1,4 +1,4 @@
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 
 export const countAtom = atom({
     //here u can give 2 argument inside an obj 
@@ -8,4 +8,15 @@ export const countAtom = atom({
     default: 0
 })
 
-//here i haev seperatley defined my state
+//here i have seperatley defined my state
+
+export const evenSelector = selector({
+    key: "evenSeletor",
+    get: ({get}) => {
+        const count = get(countAtom)
+        return count % 2
+    }
+})
+
+//Selector can depend on other atoms,
+//Selector can depend on other selector
