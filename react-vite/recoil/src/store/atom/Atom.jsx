@@ -5,12 +5,12 @@ export const networkAtom = atom({
     default: 104 
 })
 
-export const jobskAtom = atom({
+export const jobsAtom = atom({
     key: "jobsAtom",
     default: 0
 })
 
-export const notificationkAtom = atom({
+export const notificationAtom = atom({
     key: "notificationkAtom",
     default: 12
 })
