@@ -38,9 +38,8 @@ userRouter.post("/signup", async(req, res) => {
     }
 
     const dbuser = await userAuth.create(body);
-    userId: dbuser._id
     const token = jwt.sign({
-        userId
+        userId: dbuser._id
     }, JWT_SECRET)
     res.json({
         message: "User created succesfully",
