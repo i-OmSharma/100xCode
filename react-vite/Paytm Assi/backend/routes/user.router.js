@@ -1,6 +1,7 @@
 import express from "express";
 import zod from "zod"
 import jwt from "jsonwebtoken"
+import bcrypt from "bcryptjs"
 import { JWT_SECRET } from "../config";
 import { userAuth } from "../models/user.models";
 
@@ -19,32 +20,45 @@ userRouter.get("/", (req, res) => {
 })
 
 userRouter.post("/signup", async(req, res) => {
-    const body = req.body
-    const {success} = signupSchema.safeParse(req.body)
-    if(!success) {
-        return res.json({
-            message: "Incorrect Credentials"
+
+    try{
+        const body = req.body
+        const {success} = signupSchema.safeParse(body)
+        if(!success) {
+            return res.status(400).json({
+                message: "Incorrect Credentials"
+            })
+        }
+    
+        const existingUser = await userAuth.findOne({
+            userName: body.userName
         })
-    }
-
-    const existingUser = await userAuth.findOne({
-        userName: body.userName
-    })
-
-    if(existingUser) {
-        return res.json({
-            message: "Email alreasy taken"
+    
+        if(existingUser) {
+            return res.status(409).json({
+                message: "Username already taken"
+            })
+        }
+    
+        const hashedPassword = await bcrypt.hash(body.password, 8)
+    
+        const newUser = await userAuth.create({
+            ...body,
+            password: hashedPassword
         })
+    
+        const token = jwt.sign({
+            userId: newUser._id
+        }, JWT_SECRET, {expiresIn: "1h"})
+        res.json({
+            message: "User created succesfully",
+            token: token
+        })
+    } catch(error) {
+        console.log("error in SignUp:", 500)
+        res.status(500).json({message:"internal server error"})
+        
     }
-
-    const dbuser = await userAuth.create(body);
-    const token = jwt.sign({
-        userId: dbuser._id
-    }, JWT_SECRET)
-    res.json({
-        message: "User created succesfully",
-        token: token
-    })
 })
 
-export default userRouter
+
