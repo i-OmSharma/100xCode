@@ -108,7 +108,8 @@ userRouter.post('/signin', async(req, res) => {
         }, JWT_SECRET, {expiresIn: "1h"})
         res.status(200).json({
             message: "User Signin succesfully",
-            token: token
+            token: token,
+            userId: existingUser._id
         })
 
 
@@ -119,5 +120,37 @@ userRouter.post('/signin', async(req, res) => {
         })
     }
 })
+
+//finding user with suggested name
+userRouter.get("/bulk", async (req, res) => {
+
+    try{
+        const filter = req.query.filter || ""
+
+        const users = await userAuth.find({
+            $or: [{
+                firstName: {
+                    "$regex": filter, "$options": "i"
+                }
+            }, {
+                lastName: {
+                    "$regex": filter, "$options": "i"
+                }
+            }]
+        })
+        res.json({
+            users: users.map(user => ({
+                userName: user.userName,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                _id: user._id
+            }))
+        })
+    } catch(error) {
+        console.log("Error fetching Users:", error)
+        res.status(500).json({message: "Internal server error"})
+    }
+})     
+
 
 export default userRouter
