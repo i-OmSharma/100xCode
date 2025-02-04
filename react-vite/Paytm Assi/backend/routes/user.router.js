@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
 import { JWT_SECRET } from "../config";
 import { userAuth } from "../models/user.models";
+import authMiddleware from "./middleware";
 
 const userRouter = express.Router()
 
@@ -152,5 +153,27 @@ userRouter.get("/bulk", async (req, res) => {
     }
 })     
 
+//Update user
 
+const updateBody = zod.object({
+    password: zod.string().optional(),
+    firstName: zod.string().optional(),
+    lastName: zod.string().optional()
+})
+
+userRouter.put("/", authMiddleware, async(req, res) => {
+    const {success} = updateBody.safeParse(req.body)
+    if (!success) {
+        return res.status(411).json({
+            message: "Error while updating Info"
+        })
+    }
+
+    await userAuth.updateOne(
+        {_id: req.userId}, {$set: req.body}
+    )
+    res.json({
+        message:"updated successfully"
+    })
+})
 export default userRouter
