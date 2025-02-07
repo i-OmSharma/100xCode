@@ -13,4 +13,4 @@ const balanceSchema = new Schema({
     }
 )
 
-export const userBalance = mongoose.model("BalanceSchrema", balanceSchema)
+export const Account = mongoose.model("BalanceSchrema", balanceSchema)
