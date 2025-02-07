@@ -40,6 +40,19 @@ router.post("/transfer", authMiddleware, async(req, res) => {
         })
     }
 
+
+    //Perform transaction
+
+    await Account.updateOne({userId: req.userId}, {$inc: {balance: -amount}}).session(session)
+    await Account.updateOne({userId: to}, {$inc:{balance: amount}}).session(session)
+
+    //Commit transaction
+
+    await session.commitTransaction()
+    res.status(200).json({
+        message: "transfer complete"
+    })
+
 })
 
 export default accountRouter
