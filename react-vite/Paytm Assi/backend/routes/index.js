@@ -4,7 +4,7 @@ import accountRouter from "./account.router.js";
 
 const mainRouter = express.Router()
 
-router.use("/user", userRouter)
-router.use("/account", accountRouter)
+mainRouter.use("/user", userRouter)
+mainRouter.use("/account", accountRouter)
 
 export default mainRouter

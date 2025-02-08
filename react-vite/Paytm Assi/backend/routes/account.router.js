@@ -1,11 +1,11 @@
 import express from "express"
-import { Account } from "../models/balance.models"
-import authMiddleware from "./middleware"
+import { Account } from "../models/balance.models.js"
+import authMiddleware from "./middleware.js"
 import mongoose from "mongoose"
 
 const accountRouter = express.Router()
 
-router.get("/balanace", authMiddleware, async (req, res) => {
+accountRouter.get("/balanace", authMiddleware, async (req, res) => {
     const account = await Account.findOne({
         userId: req.userId
     })
@@ -14,7 +14,7 @@ router.get("/balanace", authMiddleware, async (req, res) => {
     })
 })
 
-router.post("/transfer", authMiddleware, async(req, res) => {
+accountRouter.post("/transfer", authMiddleware, async(req, res) => {
     const session = await mongoose.startSession()
     
     session.startTransaction()

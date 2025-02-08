@@ -2,9 +2,9 @@ import express from "express";
 import zod from "zod"
 import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
-import { JWT_SECRET } from "../config";
-import { userAuth } from "../models/user.models";
-import authMiddleware from "./middleware";
+import { JWT_SECRET } from "../config.js";
+import { userAuth } from "../models/user.models.js";
+import authMiddleware from "./middleware.js";
 
 const userRouter = express.Router()
 

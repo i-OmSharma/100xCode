@@ -3,8 +3,14 @@ import cors from "cors"
 import bodyParser from "body-parser";
 import jwt from "jsonwebtoken"  
 import mianRouter from "./routes/index.js"
+import connectDB from "./db/db.js";
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const app = express();
+
+connectDB()
 
 
 const PORT = 3000
