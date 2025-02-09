@@ -19,15 +19,15 @@ export const Signup = () => {
       <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
         <Heading label={"Sign up"} />
         <SubHeading label={"Enter your infromation to create an account"} />
-        <InputBox onChange={e => {
+        <InputBox onChange={(e) => {
           setFirstName(e.target.value);
-        }} placeholder="John" label={"First Name"} />
+        }} placeholder="example" label={"First Name"} />
         <InputBox onChange={(e) => {
           setLastName(e.target.value);
-        }} placeholder="Doe" label={"Last Name"} />
-        <InputBox onChange={e => {
-          setUsername(e.target.value);
-        }} placeholder="harkirat@gmail.com" label={"Email"} />
+        }} placeholder="ji" label={"Last Name"} />
+        <InputBox onChange={(e) => {
+          setUsername(e.target.value); 
+        }} placeholder="example@example.com" label={"Email"} />
         <InputBox onChange={(e) => {
           setPassword(e.target.value)
         }} placeholder="123456" label={"Password"} />
@@ -39,7 +39,8 @@ export const Signup = () => {
               lastName,
               password
             });
-            localStorage.setItem("token", response.data.token)
+            localStorage.setItem("token", response.data.token)// token get stored in browser local storage for future use.
+            localStorage.removeItem("token")//log out the user and remove the token from browsers local storage.
             navigate("/dashboard")
           }} label={"Sign up"} />
         </div>
