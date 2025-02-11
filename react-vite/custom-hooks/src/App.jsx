@@ -15,6 +15,8 @@ function App() {
   )
 }
 
+
+//Without any hooks
 class MyComponent extends React.Component{
   constructor(props) {
     super(props)
@@ -35,6 +37,7 @@ class MyComponent extends React.Component{
     )
   }
 }
+
 
 // function MyComponent() {
 //   const [count, setCount] = useState(0)
