@@ -69,20 +69,38 @@ function App() {
 // LifeCycle Events
 //functional Component
 
-function MyComponent() {
-  useEffect(() => {
-    console.error("Component Mounted")
+// function MyComponent() {
+//   useEffect(() => {
+//     console.error("Component Mounted")
 
-    return () => {
-      console.log("Component Unmounted")
-    } //u can return function inside the useEffect u can only return function nothing else, this function runs anytime the dependencies change or the component unmounts. It is used somewhat for cleaing up the previous mounted component.
-  },[])
+//     return () => {
+//       console.log("Component Unmounted")
+//     } //u can return function inside the useEffect u can only return function nothing else, this function runs anytime the dependencies change or the component unmounts. It is used somewhat for cleaing up the previous mounted component.
+//   },[])
 
-  return <div>
-    From inside my Component
-  </div>
+//   return <div>
+//     From inside my Component
+//   </div>
+// }
+
+
+
+//Class Based components
+class MyComponent extends React.Component{
+  componentDidMount() {
+    console.log("Component mounted");
+  }
+
+  componentWillUnmount() {
+    console.log("Component Unmounted");
+  }
+
+  render() {
+    return <div>
+      From inside my Component
+    </div>
+  }
 }
-
 
 
 export default App
