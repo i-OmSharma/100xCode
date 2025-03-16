@@ -13,7 +13,7 @@ function App() {
     }, 5000);
   }, []);
 
-  if (render) {
+  if (!render) {
     return <div>
       2nd div
     </div>
