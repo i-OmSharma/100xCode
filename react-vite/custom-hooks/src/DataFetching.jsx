@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
-    axios.get("https://sum-server.100xdevs.com/todos").then((res) => {
-      setTodos(res.data.todos);
-    });
-  }, []);
+    const todos = useTodos(); 
+//   const [todos, setTodos] = useState([]);
+
+//   useEffect(() => {
+//     axios.get("https://sum-server.100xdevs.com/todos").then((res) => {
+//       setTodos(res.data.todos);
+//     });
+//   }, []);
 
   return (
     <>
@@ -27,3 +29,17 @@ function Track({ todo }) {
 }
 
 export default DataFetching
+
+
+
+function useTodos() {
+    const [todos, setTodos] = useState([]);
+
+    useEffect(() => {
+      axios.get("https://sum-server.100xdevs.com/todos").then((res) => {
+        setTodos(res.data.todos);
+      });
+    }, []);
+
+    return todos;
+}
