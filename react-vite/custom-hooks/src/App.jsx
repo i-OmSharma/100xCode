@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react' // if  want to use React.Component 
 import { Component } from 'react' //if u want to use Component
 import './App.css'
+import DataFetching from './DataFetching';
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
   return (
     <>
       {render ? <MyComponent /> : <div></div> } 
+      <DataFetching />
     </> 
   )
 }
