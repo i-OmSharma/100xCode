@@ -4,16 +4,17 @@ import { Component } from 'react' //if u want to use Component
 import './App.css'
 import DataFetching from './DataFetching';
 import AutoFetching from './AutoFetching';
+import MousePointer from './hooks/MousePointer';
 
 function App() {
   //const [count, setCount] = useState(0)
   const [render, setRender] = useState(true)
   
-  useEffect(() => {
-    setTimeout(() => {
-      setRender(false)
-    }, 5000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setRender(false)
+  //   }, 5000);
+  // }, []);
 
   if (!render) {
     return <div>
@@ -23,9 +24,11 @@ function App() {
 
   return (
     <>
-      {render ? <MyComponent /> : <div></div> } 
+      {/* {render ? <MyComponent /> : <div></div> } 
       <DataFetching />
-      <AutoFetching />
+      <AutoFetching /> */}
+      <h1> hello.. </h1>
+      <MousePointer />
     </> 
   )
 }

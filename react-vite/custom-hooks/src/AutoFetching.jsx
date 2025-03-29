@@ -29,7 +29,7 @@ function useTodos(n) {
   return { todos, loading };
 }
 
-function App() {
+function AutoFetching() {
   //   const [todos, setTodos] = useState([]);
 
   //   useEffect(() => {
