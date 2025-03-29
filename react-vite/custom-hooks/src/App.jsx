@@ -6,6 +6,7 @@ import DataFetching from './DataFetching';
 import AutoFetching from './AutoFetching';
 import MousePointer from './hooks/MousePointer';
 import Interval from './hooks/Interval';
+import Debounce from './hooks/Debounce';
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -30,7 +31,8 @@ function App() {
       <DataFetching />
       <AutoFetching /> */}
       {/* <MousePointer /> */}
-      <Interval />
+      {/* <Interval /> */}
+      <Debounce />
     </> 
   )
 }
