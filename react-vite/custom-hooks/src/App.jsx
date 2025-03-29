@@ -5,6 +5,7 @@ import './App.css'
 import DataFetching from './DataFetching';
 import AutoFetching from './AutoFetching';
 import MousePointer from './hooks/MousePointer';
+import Interval from './hooks/Interval';
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -24,11 +25,12 @@ function App() {
 
   return (
     <>
+      <h1> hello.. </h1>
       {/* {render ? <MyComponent /> : <div></div> } 
       <DataFetching />
       <AutoFetching /> */}
-      <h1> hello.. </h1>
-      <MousePointer />
+      {/* <MousePointer /> */}
+      <Interval />
     </> 
   )
 }
