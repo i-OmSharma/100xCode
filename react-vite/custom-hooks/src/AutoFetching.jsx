@@ -6,13 +6,25 @@ function useTodos(n) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setInterval(() => {
+
+    axios.get("https://sum-server.100xdevs.com/todos").then((res) => {
+        setTodos(res.data.todos);
+        setLoading(false);
+      });
+
+
+    const value = setInterval(() => {
       axios.get("https://sum-server.100xdevs.com/todos").then((res) => {
         setTodos(res.data.todos);
         setLoading(false);
       });
     }, n * 1000);
-  }, []);
+
+
+    return () => {
+        clearInterval(value) // clear Interval is for stop the revious function
+    }
+  }, [n]); // if u use n it will change according to n, which means whenever n chages a new time interval.
 
   return { todos, loading };
 }
@@ -26,7 +38,7 @@ function App() {
   //     });
   //   }, []);
 
-  const { todos, loading } = useTodos();
+  const { todos, loading } = useTodos(5);
 
   if (loading) {
     return <div>Loading... </div>;
