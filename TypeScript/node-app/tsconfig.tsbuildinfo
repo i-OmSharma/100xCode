@@ -1,1 +1,1 @@
-{"root":["./src/a.ts","./src/array.ts","./src/hello.ts","./src/isLegal.ts","./src/runAfter1Sec.ts","./src/sum.ts","./src/type.ts"],"version":"5.8.2"}
+{"root":["./src/a.ts","./src/array.ts","./src/enum.ts","./src/hello.ts","./src/isLegal.ts","./src/runAfter1Sec.ts","./src/sum.ts","./src/type.ts"],"version":"5.8.2"}
