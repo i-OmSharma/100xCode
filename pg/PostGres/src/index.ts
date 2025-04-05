@@ -23,5 +23,35 @@ async function createUserTable() {
         `);
   console.log(result);
 }
-  
-createUserTable();
+
+async function insertIntoTable() {
+    await client.connect();
+    const insertQuery = `
+            INSERT INTO users (
+                username,
+                email,
+                password,
+                created_at
+            )
+            VALUES($1, $2, $3, CURRENT_TIMESTAMP)
+            RETURNING *;
+        `;
+    const Values = ['example', 'example@example.com','asdasd']
+
+    const res = await client.query(insertQuery, Values)
+    console.log('Insertion complete:', res.rows[0]);
+}
+
+async function main() {
+    try{
+        // await createUserTable()
+        await insertIntoTable()
+    }catch(err){
+        console.log("ERROR", err);
+    }finally{
+        await client.end(); //always close connection with DB
+        console.log("Connection Closed");
+    }
+}
+
+main()

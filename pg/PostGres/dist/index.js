@@ -33,4 +33,37 @@ function createUserTable() {
         console.log(result);
     });
 }
-createUserTable();
+function insertIntoTable() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield client.connect();
+        const insertQuery = `
+            INSERT INTO users (
+                username,
+                email,
+                password,
+                created_at
+            )
+            VALUES($1, $2, $3, CURRENT_TIMESTAMP)
+            RETURNING *;
+        `;
+        const Values = ['example', 'example@example.com', 'asdasd'];
+        const res = yield client.query(insertQuery, Values);
+        console.log('Insertion complete:', res.rows[0]);
+    });
+}
+function main() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            // await createUserTable()
+            yield insertIntoTable();
+        }
+        catch (err) {
+            console.log("ERROR", err);
+        }
+        finally {
+            yield client.end(); //always close connection with DB
+            console.log("Connection Closed");
+        }
+    });
+}
+main();
