@@ -23,9 +23,23 @@ async function updateUser(email, { firstName, lastName }) {
     });
     console.log(res2);
 }
-updateUser("com@example.com", {
-    firstName: "asdas",
-    lastName: "qweqwe"
-}).then(() => {
-    console.log("user Updated");
-});
+// updateUser("com@example.com", {
+//     firstName: "asdas",
+//     lastName: "qweqwe"
+// }).then(() => {
+//     console.log("user Updated");
+// })
+async function deleteUser(email) {
+    const res3 = await prisma.user.delete({
+        where: { email }
+    });
+    console.log(res3);
+}
+// deleteUser("com@example.com").then(()=> {
+//     console.log("User deleted");
+// })
+async function showUser() {
+    const res4 = await prisma.user.findMany();
+    console.log(res4);
+}
+showUser();
