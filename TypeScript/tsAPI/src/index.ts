@@ -30,3 +30,11 @@ const updatePayload: Updateprops = {
 };
 
 UpdateUser(1, updatePayload);
+
+interface user2{
+    id: number,
+    name: string,
+    age?: number,
+    email?: string, //partial
+    password: string
+}
