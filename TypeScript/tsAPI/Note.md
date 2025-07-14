@@ -11,4 +11,9 @@
 - just use "?" to make what ever u wana make optional!
 - Select partially
 
+## Readonly
+
+- When u ever have a configuration object that should not be altered after initilization , makeing it Readonly ensures its porperties cannot be changed.
+- constants on internal values.
+
 

@@ -35,6 +35,24 @@ interface user2{
     id: number,
     name: string,
     age?: number,
-    email?: string, //partial
+    email?: string, //partial  
     password: string
 }
+
+
+type user3 = {
+    // Readonly id: number,
+    name: string,
+    age?: number,
+    email?: string, //partial  
+    password?: string
+}
+
+// or
+
+const obj : Readonly<user3> = {
+    name: "john",
+    age: 21
+}
+
+// obj.age = 12
