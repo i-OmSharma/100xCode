@@ -16,4 +16,14 @@
 - When u ever have a configuration object that should not be altered after initilization , makeing it Readonly ensures its porperties cannot be changed.
 - constants on internal values.
 
+## Record
 
+- Records lets u give a cleanner type to opbject
+- Record<Keys, Type>
+- whenever we have objects we will se Record
+- We can de structure the Type for more complex storage!
+- Record is only in TS, not in JS
+
+## Map
+- const users = new Map<string, number>();
+- similar as js get set delete iterate over data

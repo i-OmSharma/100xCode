@@ -15,3 +15,23 @@ const updatePayload = {
     password: "newPass123"
 };
 UpdateUser(1, updatePayload);
+// or
+const obj = {
+    name: "john",
+    age: 21
+};
+const users = {
+    "ras@1": {
+        id: 1,
+        username: "rashid"
+    },
+    "ahm@2": {
+        id: 2,
+        username: "admad"
+    }
+};
+const users1 = new Map();
+users1.set("ras@1", { id: 1, name: "Rashid" });
+users1.set("ahm@2", { id: 2, name: "ahmad" });
+const usrs = users1.get("ras@1");
+console.log(usrs);
