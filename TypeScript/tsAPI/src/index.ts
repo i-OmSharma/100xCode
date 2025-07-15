@@ -114,4 +114,15 @@ users1.set("ahm@2", { id: 2, name: "ahmad" });
 
 const usrs = users1.get("ras@1");
 console.log(usrs);
- 
+
+//Exclude
+
+type EventType = 'click' | 'scroll' | 'mousemove'
+type ExcludeEvent = Exclude<EventType,'scroll' >
+
+const handleEvent = (event: ExcludeEvent) => {
+    console.log(`handling event: ${event}`); 
+}
+
+handleEvent('click') //Ok
+// handleEvent('scroll') //NotOK

@@ -27,3 +27,8 @@
 ## Map
 - const users = new Map<string, number>();
 - similar as js get set delete iterate over data
+
+## Event
+
+- Exclude<T, U>
+- Used when we want to exclude some value or something from the input or give data.
