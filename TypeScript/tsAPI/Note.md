@@ -32,3 +32,8 @@
 
 - Exclude<T, U>
 - Used when we want to exclude some value or something from the input or give data.
+
+## Zod Inferecne
+
+- used for the infereing the zod type, gettig the exact type out of the zod schema
+- z.infer<typeof SCHEMA_NAME>
